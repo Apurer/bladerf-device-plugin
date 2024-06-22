@@ -2,6 +2,9 @@ sudo chown -R $USER:$USER ~/.minikube
 sudo chown -R $USER:$USER ~/.kube
 sudo minikube start --addons=ingress --addons=registry
 
+sudo minikube dashboard
+
+
 alias kubectl='minikube kubectl --'
 
 sudo sysctl fs.protected_regular=0
