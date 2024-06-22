@@ -1,16 +1,16 @@
 package main
 
 import (
-    "bytes"
+    // "bytes"
     "flag"
     "fmt"
     "io/ioutil"
     "net"
     "os"
-    "os/exec"
+    // "os/exec"
     "path"
     "strings"
-    "sync"
+    // "sync"
     "time"
     "log"
 
@@ -205,9 +205,9 @@ func (bladerf *bladeRFManager) Allocate(ctx context.Context, rqt *pluginapi.Allo
                     ContainerPath: "/usr/share/nuand/bladerf/",
                     ReadOnly:      true,
                 })
+                glog.Info("Allocated bladeRF interface ", id)
             }
         }
-        glog.Info("Allocated bladeRF interface ", id)
     }
     return resp, nil
 }

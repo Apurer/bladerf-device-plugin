@@ -13,20 +13,18 @@ spec:
         name: bladerf-device-plugin
     spec:
       tolerations:
-      - operator: "Exists"
-        effect: "NoExecute"
-      - operator: "Exists"
-        effect: "NoSchedule"
+        - operator: "Exists"
+          effect: "NoExecute"
+        - operator: "Exists"
+          effect: "NoSchedule"
       containers:
-      - image: apurer/bladerf-device-plugin:latest
-        name: bladerf-device-plugin
-        securityContext:
-          privileged: true
-        volumeMounts:
-          - name: device-plugin
-            mountPath: /var/lib/kubelet/device-plugins
-      tolerations:
-      - operator: Exists
+        - name: bladerf-device-plugin
+          image: localhost:5000/apurer/bladerf-device-plugin:latest
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: device-plugin
+              mountPath: /var/lib/kubelet/device-plugins
       volumes:
         - name: device-plugin
           hostPath:

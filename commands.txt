@@ -1,0 +1,10 @@
+
+alias kubectl='minikube kubectl --'
+
+sudo sysctl fs.protected_regular=0
+sudo minikube kubectl -- label ns kube-system pod-security.kubernetes.io/enforce=privileged
+sudo minikube kubectl -- get ns kube-system --show-labels
+
+sudo minikube kubectl -- get daemonset -n kube-system
+sudo minikube kubectl -- get pods -n kube-system -l name=bladerf-device-plugin
+sudo minikube kubectl -- logs bladerf-device-plugin-daemonset-drnmf -n kube-system
