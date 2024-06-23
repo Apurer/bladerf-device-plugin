@@ -28,6 +28,8 @@ RUN apt-get update && \
 # Install the BladeRF software and development libraries
 RUN apt-get install -y bladerf libbladerf-dev
 
+RUN apt-get install -y lsof usbutils
+
 # Set the working directory in the container
 WORKDIR /usr/local/bin
 

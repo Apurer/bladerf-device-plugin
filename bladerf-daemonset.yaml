@@ -19,13 +19,18 @@ spec:
           effect: "NoSchedule"
       containers:
         - name: bladerf-device-plugin
-          image: localhost:5000/apurer/bladerf-device-plugin:latest
+          image: ghcr.io/apurer/bladerf-device-plugin:2.00
           securityContext:
             privileged: true
           volumeMounts:
             - name: device-plugin
               mountPath: /var/lib/kubelet/device-plugins
+            # - name: usb-devices
+            #   mountPath: /dev/bus/usb
       volumes:
         - name: device-plugin
           hostPath:
             path: /var/lib/kubelet/device-plugins
+        # - name: usb-devices
+        #   hostPath:
+        #     path: /dev/bus/usb

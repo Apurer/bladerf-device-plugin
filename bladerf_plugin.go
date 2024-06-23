@@ -200,11 +200,11 @@ func (bladerf *bladeRFManager) Allocate(ctx context.Context, rqt *pluginapi.Allo
                     ContainerPath: devPath,
                     Permissions:   "mrw",
                 })
-                containerResp.Mounts = append(containerResp.Mounts, &pluginapi.Mount{
-                    HostPath:      "/usr/share/nuand/bladerf/",
-                    ContainerPath: "/usr/share/nuand/bladerf/",
-                    ReadOnly:      true,
-                })
+                // containerResp.Mounts = append(containerResp.Mounts, &pluginapi.Mount{
+                //     HostPath:      "/usr/share/nuand/bladerf/",
+                //     ContainerPath: "/usr/share/nuand/bladerf/",
+                //     ReadOnly:      true,
+                // })
                 glog.Info("Allocated bladeRF interface ", id)
             }
         }

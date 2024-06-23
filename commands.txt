@@ -14,3 +14,19 @@ sudo minikube kubectl -- get ns kube-system --show-labels
 sudo minikube kubectl -- get daemonset -n kube-system
 sudo minikube kubectl -- get pods -n kube-system -l name=bladerf-device-plugin
 sudo minikube kubectl -- logs bladerf-device-plugin-daemonset-drnmf -n kube-system
+
+
+start minikube start --addons=ingress --addons=registry --driver=kvm2
+
+start 
+
+minikube config set driver kvm2
+
+ssh -i /home/apurer/.minikube/machines/minikube/id_rsa docker@192.168.39.41
+
+
+sudo virsh attach-device minikube usb_device.xml --persistent
+
+minikube kubectl -- label ns kube-system pod-security.kubernetes.io/enforce=privileged
+
+minikube kubectl -- get ns kube-system --show-labels
