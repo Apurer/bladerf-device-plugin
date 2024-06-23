@@ -1,0 +1,10 @@
+configure minikube
+minikube start --addons=ingress --addons=registry --driver=kvm2 --disk-size='200g' --cpus=12 --memory=50192
+
+minikube dashboard
+
+configure usb device
+virsh attach-device minikube usb_device.xml --persistent
+
+edit device model controller to <controller type='usb' index='0' model='ehci'>
+virsh edit minikube

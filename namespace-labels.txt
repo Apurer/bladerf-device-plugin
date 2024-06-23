@@ -1,0 +1,8 @@
+configure privileged mode for namespaces
+minikube kubectl -- label ns kube-system pod-security.kubernetes.io/enforce=privileged
+minikube kubectl -- label ns default pod-security.kubernetes.io/enforce=privileged
+
+check configured labels for namespaces 
+minikube kubectl -- get ns kube-system --show-labels
+minikube kubectl -- get ns default --show-labels
+
